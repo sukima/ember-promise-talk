@@ -1,0 +1,94 @@
+a.normal {
+  text-decoration: none;
+  display:         inline-block;
+  position:        relative;
+  padding-left:    2px;
+  padding-right:   2px;
+}
+
+a.normal:hover {
+  text-decoration: underline
+}
+
+a.normal:hover::before {
+  left:    -4px;
+  opacity: 1;
+}
+
+a.normal:hover::after {
+  right:   -4px;
+  opacity: 1;
+}
+
+a.normal::before {
+  -webkit-transition: all .2s;
+  -o-transition:      all .2s;
+  transition:         all .2s;
+  position:           absolute;
+  display:            block;
+  top:                0;
+  opacity:            0;
+  left:               4px;
+  content:            "[";
+}
+
+a.normal::after {
+  -webkit-transition: all .2s;
+  -o-transition:      all .2s;
+  transition:         all .2s;
+  position:           absolute;
+  display:            block;
+  top:                0;
+  opacity:            0;
+  right:              4px;
+  content:            "]";
+}
+
+@keyframes spin {
+  to { background-position: 0 -100000px; }
+}
+
+@keyframes stop {
+  from { background-position: 0 0; }
+}
+
+.slot {
+  background-image: url(../images/reel_normal.png);
+  background-repeat: no-repeat repeat;
+  background-position: 0 0;
+  width: 80px;
+  height: 80px;
+}
+
+.spinning {
+  background-image: url(../images/reel_blur.png);
+  animation: spin 40s ease infinite;
+}
+
+.stopping {
+  animation: stop 1s linear forwards;
+}
+
+.bannanas {
+  background-position: 0 -1696px;
+}
+
+.orange {
+  background-position: 0 -940px;
+}
+
+.seven {
+  background-position: 0 -1014px;
+}
+
+.bars {
+  background-position: 0 -1084px;
+}
+
+.cherries {
+  background-position: 0 -846px;
+}
+
+.pear {
+  background-position: 0 -686px;
+}

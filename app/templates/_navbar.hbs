@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" aria-expanded="false" {{action "toggleMenu"}}>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand">Keeping Promises in EmberJS</span>
+    </div>
+
+    {{#bs-collapse collapsed=collapsedMenu class="navbar-collapse"}}
+      <ul class="nav navbar-nav">
+        <li>{{#link-to "index"}}Demo{{/link-to}}</li>
+        <li>{{#link-to "about"}}About{{/link-to}}</li>
+        <li>{{#link-to "slides"}}Slides{{/link-to}}</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-console"></span> GitHub</a></li>
+      </ul>
+    {{/bs-collapse}}
+  </div>
+</nav>
