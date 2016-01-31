@@ -12,10 +12,13 @@
 
     {{#bs-collapse collapsed=collapsedMenu class="navbar-collapse"}}
       <ul class="nav navbar-nav">
-        <li>{{#link-to "index"}}Demo{{/link-to}}</li>
-        <li>{{#link-to "about"}}About{{/link-to}}</li>
-        <li>{{#link-to "slides"}}Slides{{/link-to}}</li>
+        {{#link-to "index" tagName="li"}}{{#link-to "index"}}Demo{{/link-to}}{{/link-to}}
+        {{#link-to "about" tagName="li"}}{{#link-to "about"}}About{{/link-to}}{{/link-to}}
+        {{#link-to "slides" tagName="li"}}{{#link-to "slides"}}Slides{{/link-to}}{{/link-to}}
       </ul>
+      <p class="navbar-text wins">Wins: {{scores.wins}}</p>
+      <p class="navbar-text losses">Losses: {{scores.losses}}</p>
+      <p class="navbar-text pot">Pot: ${{scores.cashPot}}</p>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-console"></span> GitHub</a></li>
       </ul>

@@ -1,3 +1,10 @@
-<h2 id="title">Keeping Promises in EmberJS</h2>
+{{#if audio.audioSrc}}<audio src={{audio.audioSrc}} autoplay></audio>{{/if}}
 
-Index
+<div class="{{if isWinner 'coin-bg animated fadeIn'}}">
+  {{#if showWinner}}
+    <div class="sparkles">
+      <div class="winner animated infinite tada">Winner!<br>${{scores.lastPot}}</div>
+    </div>
+  {{/if}}
+  {{slot-machine spinning=(action "slotSpinning") spinDone=(action "spinDone")}}
+</div>

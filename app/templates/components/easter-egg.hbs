@@ -1,0 +1,12 @@
+<div class="{{if revealed 'animated hinge'}}" {{action "reveal"}}>
+{{yield}}
+</div>
+
+{{#if revealed}}
+<div class="secret animated fadeIn">
+  <button class="btn btn-default btn-lg pull-right {{if slot.isLucky 'active'}}" {{action "toggleLuck"}}>
+    <span class="glyphicon {{if slot.isLucky 'glyphicon-star' 'glyphicon-star-empty'}}"></span>
+    Boost My Luck
+  </button>
+</div>
+{{/if}}

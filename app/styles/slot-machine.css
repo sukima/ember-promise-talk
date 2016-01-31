@@ -1,0 +1,30 @@
+.slot-machine {
+  perspective: 1000px;
+  perspective-origin: right;
+  background-color: transparent;
+  background-image: url('../images/slot_face.png');
+  background-repeat: no-repeat;
+  width: 587px;
+  height: 711px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.slot-machine .spinner {
+  position: relative;
+}
+
+.slot-machine .spinner.left {
+  top: 180px;
+  left: 115px;
+}
+
+.slot-machine .spinner.middle {
+  top: 10px;
+  left: 214px;
+}
+
+.slot-machine .spinner.right {
+  top: -160px;
+  left: 313px;
+}
