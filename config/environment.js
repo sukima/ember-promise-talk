@@ -4,8 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-promise-talk',
     environment: environment,
-    baseURL: '/',
-    locationType: 'auto',
+    baseURL: '/ember-promise-talk',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -43,7 +43,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/ember-promise-talk';
   }
 
   return ENV;
