@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 
   actions: {
     spin() {
-      if (this.get('isSpinning')) { return false; }
+      if (this.get('disabled')) { return false; }
       const slot = this.get('slot');
       const results = [
         slot.spinnerValue(3000),

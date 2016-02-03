@@ -5,5 +5,8 @@
     </div>
   {{/if}}
 
-  {{slot-machine spinnerValues=spinnerValues spinning=(action "slotSpinning") spinDone=(action "spinDone")}}
+  {{slot-machine spinnerValues=spinnerValues
+                 disabled=isSpinning
+                 spinning=(action "slotSpinning")
+                 spinDone=(action "spinDone")}}
 </div>

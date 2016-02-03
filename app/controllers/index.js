@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
       this.get('audio').play(isWinner ? 'win' : 'lose');
       this.get('scores').record(isWinner);
       if (isWinner) {
-        delayFor(5000).then(() => Ember.trySet(this, 'showWinner', false));
+        delayFor(5000).then(() => this.set('showWinner', false));
       }
     }
   }
