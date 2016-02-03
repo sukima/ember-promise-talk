@@ -8,8 +8,10 @@ export default Ember.Controller.extend({
   isWinner: Ember.computed.alias('scores.isWinner'),
 
   actions: {
-    slotSpinning() {
-      this.set('isSpinning', true).set('isWinner', false);
+    slotSpinning(spinnerValues) {
+      this.set('spinnerValues', spinnerValues)
+        .set('isSpinning', true)
+        .set('isWinner', false);
       this.get('audio').play('spinning');
     },
 
