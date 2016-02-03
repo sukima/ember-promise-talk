@@ -1,22 +1,30 @@
 import Ember from 'ember';
 
 const SOUNDS = {
-  _off:     null,
   spinning: 'audio/spinning.mp3',
   win:      'audio/win.mp3',
   lose:     'audio/lose.mp3'
 };
 
 export default Ember.Service.extend({
-  audioSrc: Ember.computed('sound', function () {
-    return SOUNDS[this.getWithDefault('sound', '_off')];
-  }),
-
-  play(sound) {
-    this.set('sound', sound);
+  init(...args) {
+    this._super(...args);
+    this.audioManager = new Audio();
   },
 
-  stop() {
-    this.set('sound', '_off');
+  play(sound) {
+    const audioManager = this.get('audioManager');
+    audioManager.src = SOUNDS[sound];
+    audioManager.play();
+  },
+
+  stopAll() {
+    const audioManager = this.get('audioManager');
+    try {
+      audioManager.pause();
+      audioManager.currentTime = 0;
+    } catch(e) {
+      Ember.debug(`Unable to reset audio ${audioManager.src}`);
+    }
   }
 });

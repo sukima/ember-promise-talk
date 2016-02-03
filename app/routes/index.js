@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 
   actions: {
     didTransition() {
-      this.get('audio').stop();
+      this.get('audio').stopAll();
       this.get('scores').cleanup();
       return true;
     }
