@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { delayFor } from '../utils/timer';
+import { delay } from '../utils/timer';
 
 export default Ember.Controller.extend({
   audio: Ember.inject.service(),
@@ -9,21 +9,22 @@ export default Ember.Controller.extend({
 
   actions: {
     slotSpinning(spinnerValues) {
+      this.get('audio').play('spinning');
       this.set('spinnerValues', spinnerValues)
         .set('isSpinning', true)
-        .set('isWinner', false);
-      this.get('audio').play('spinning');
+        .set('isWinner', false)
+        .set('showWinner', false);
     },
 
     spinDone(isWinner) {
-      this.set('isSpinning', false)
-        .set('isWinner', isWinner)
-        .set('showWinner', isWinner);
+      this.set('isSpinning', false).set('isWinner', isWinner);
       this.get('audio').play(isWinner ? 'win' : 'lose');
       this.get('scores').record(isWinner);
-      if (isWinner) {
-        delayFor(5000).then(() => this.set('showWinner', false));
-      }
+      delay(500)(isWinner)
+        .then(showWinner => this.set('showWinner', showWinner))
+        .then(delay(5000))
+        .then(() => this.set('showWinner', false))
+        .catch(Ember.Logger.error);
     }
   }
 });
