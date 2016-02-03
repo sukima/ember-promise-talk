@@ -11,6 +11,8 @@ const WIN_CHANCE_RATE = 10;
 
 const LUCKY_PROBABILITY = 70;
 
+const SpinnerPromiseObject = Ember.Object.extend(Ember.PromiseProxyMixin);
+
 export default Ember.Service.extend({
   resultCount: -1,
   _probability: 0,
@@ -41,7 +43,9 @@ export default Ember.Service.extend({
   },
 
   spinnerValue(timer) {
-    return delayFor(timer).then(() => this.randomResult());
+    return SpinnerPromiseObject.create({
+      promise: delayFor(timer).then(() => this.randomResult())
+    });
   },
 
   isWinner(results) {

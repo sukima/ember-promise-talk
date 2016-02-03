@@ -19,7 +19,6 @@ export default Ember.Component.extend({
   actions: {
     spin() {
       if (this.get('isSpinning')) { return false; }
-      this.set('isSpinning', true);
       Ember.run(this.attrs.spinning);
       const slot = this.get('slot');
       const results = [
@@ -30,8 +29,7 @@ export default Ember.Component.extend({
       this.set('spinnerValues', results);
       return Ember.RSVP.all(results)
         .then(delay(1000))
-        .then(Ember.run.bind(this, 'checkWinner'))
-        .finally(() => this.set('isSpinning', false));
+        .then(Ember.run.bind(this, 'checkWinner'));
     }
   }
 });

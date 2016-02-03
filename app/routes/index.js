@@ -5,9 +5,8 @@ export default Ember.Route.extend({
   scores: Ember.inject.service(),
 
   actions: {
-    didTransition() {
+    willTransition() {
       this.get('audio').stopAll();
-      this.get('scores').cleanup();
       return true;
     }
   }

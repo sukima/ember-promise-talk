@@ -14,10 +14,6 @@ export default Ember.Service.extend({
     return Math.max(growth, MINIMUM_CASH_POT).toLocaleString();
   }),
 
-  cleanup() {
-    this.set('isWinner', false);
-  },
-
   record(isWinner) {
     this.incrementProperty(isWinner ? 'wins' : 'losses');
     if (isWinner) {

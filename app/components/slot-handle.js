@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   classNameBindings: ['animated:handle-animated'],
   click() {
     this.set('animated', true);
-    this.$().one(animationEndEvents, () => this.set('animated', false));
+    this.$().one(animationEndEvents, () => Ember.trySet(this, 'animated', false));
     this.attrs.action();
   }
 });
