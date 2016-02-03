@@ -11,7 +11,7 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember test",
-    "deploy": "ember github-pages:commit --environment=production"
+    "deploy": "ember github-pages:commit --environment=production && git push origin gh-pages && git checkout master"
   },
   "repository": "",
   "engines": {
