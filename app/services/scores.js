@@ -8,9 +8,10 @@ export default Ember.Service.extend({
   isWinner: false,
   consecutiveLoseCount: 0,
 
-  lastPot: 0,
+  lastPot: "0",
   cashPot: Ember.computed('consecutiveLoseCount', function () {
-    return Math.max(Math.pow(this.get('consecutiveLoseCount'), 2) * 100, MINIMUM_CASH_POT);
+    const growth = (Math.pow(2, this.get('consecutiveLoseCount')) / 2) * 100;
+    return Math.max(growth, MINIMUM_CASH_POT).toLocaleString();
   }),
 
   cleanup() {

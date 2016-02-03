@@ -7,7 +7,7 @@ const SPINNER_VALUES = [
 
 const WINNING_VALUES = ['seven', 'bars'];
 
-const WIN_CHANCE_RATE = 5;
+const WIN_CHANCE_RATE = 10;
 
 const LUCKY_PROBABILITY = 70;
 

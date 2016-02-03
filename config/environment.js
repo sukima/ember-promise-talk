@@ -13,7 +13,8 @@ module.exports = function(environment) {
       }
     },
     contentSecurityPolicy: {
-      'style-src': "'unsafe-inline' 'self'"
+      'style-src': "'unsafe-inline' 'self'",
+      'img-src': "'self' imgs.xkcd.com"
     },
 
     APP: {
