@@ -4,7 +4,6 @@
 
 @keyframes stop {
   from { background-position: 0 -40px; }
-  to { background-image: url('../images/reel_normal.png'); }
 }
 
 .spinner {

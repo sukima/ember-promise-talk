@@ -1,12 +1,5 @@
 import Ember from 'ember';
-
-const animationEndEvents = [
-  'webkitAnimationEnd',
-  'mozAnimationEnd',
-  'MSAnimationEnd',
-  'oanimationend',
-  'animationend'
-].join(' ');
+import {animationEndEvents} from '../utils/dom-animation';
 
 export default Ember.Component.extend({
   classNames: ['slot-handle'],

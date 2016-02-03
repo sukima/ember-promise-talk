@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-promise-talk',
     environment: environment,
-    baseURL: '/ember-promise-talk',
+    baseURL: '/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
