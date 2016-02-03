@@ -3,6 +3,10 @@
 @import 'slot-handle.css';
 @import 'slot-winner.css';
 
+body {
+  min-width: 670px;
+}
+
 .easter-egg .secret {
   position: relative;
   top: -60px;
