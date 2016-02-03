@@ -7,7 +7,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <span class="navbar-brand">Keeping Promises in EmberJS</span>
+      <span class="navbar-brand">
+        <span class="hidden-xs">Keeping Promises in EmberJS</span>
+        <span class="visible-xs-inline">
+          <span class="wins">Wins: {{scores.wins}}</span>
+          <span class="losses">Losses: {{scores.losses}}</span>
+          <span class="pot">Pot: ${{scores.cashPot}}</span>
+        </span>
+      </span>
     </div>
 
     {{#bs-collapse collapsed=collapsedMenu class="navbar-collapse"}}
@@ -16,9 +23,11 @@
         {{#link-to "about" tagName="li"}}{{#link-to "about"}}About{{/link-to}}{{/link-to}}
         {{#link-to "slides" tagName="li"}}{{#link-to "slides"}}Slides{{/link-to}}{{/link-to}}
       </ul>
-      <p class="navbar-text wins">Wins: {{scores.wins}}</p>
-      <p class="navbar-text losses">Losses: {{scores.losses}}</p>
-      <p class="navbar-text pot">Pot: ${{scores.cashPot}}</p>
+      <p class="navbar-text hidden-xs">
+        <span class="wins">Wins: {{scores.wins}}</span>
+        <span class="losses">Losses: {{scores.losses}}</span>
+        <span class="pot">Pot: ${{scores.cashPot}}</span>
+      </p>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://github.com/sukima/ember-promise-talk/"><span class="glyphicon glyphicon-console"></span> GitHub</a></li>
       </ul>

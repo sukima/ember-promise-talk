@@ -1,9 +1,9 @@
-
 <div class="{{if isWinner 'coin-bg animated fadeIn'}}">
   {{#if showWinner}}
     <div class="sparkles">
       <div class="winner animated infinite tada">Winner!<br>${{scores.lastPot}}</div>
     </div>
   {{/if}}
+
   {{slot-machine spinning=(action "slotSpinning") spinDone=(action "spinDone")}}
 </div>
