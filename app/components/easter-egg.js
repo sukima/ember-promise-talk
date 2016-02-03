@@ -7,7 +7,8 @@ export default Ember.Component.extend({
   revealed: false,
 
   actions: {
-    reveal() {
+    reveal(evt) {
+      evt.preventDefault();
       this.toggleProperty('revealed');
     },
 
