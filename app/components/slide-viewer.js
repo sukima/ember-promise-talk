@@ -39,17 +39,16 @@ export default Ember.Component.extend({
 
   actions: {
     next() {
-      const slideIndex = this.get('slideIndex');
-      const lastIndex = SLIDE_NAMES.length - 1;
-      if (slideIndex < lastIndex) {
-        this.attrs.updateSlide(slideIndex + 1);
-      }
+      this.send('pickSlide', this.get('slideIndex') + 1);
     },
 
     previous() {
-      const slideIndex = this.get('slideIndex');
-      if (slideIndex > 0) {
-        this.attrs.updateSlide(slideIndex - 1);
+      this.send('pickSlide', this.get('slideIndex') - 1);
+    },
+
+    pickSlide(index) {
+      if (index >= 0 && index < SLIDE_NAMES.length) {
+        this.attrs.updateSlide(index);
       }
     }
   }

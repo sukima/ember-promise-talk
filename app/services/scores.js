@@ -1,14 +1,16 @@
 import Ember from 'ember';
+import { storageFor } from 'ember-local-storage';
 
 const MINIMUM_CASH_POT = 50;
 
 export default Ember.Service.extend({
-  wins: 0,
-  losses: 0,
-  isWinner: false,
-  consecutiveLoseCount: 0,
+  storage: storageFor('scores'),
+  wins: Ember.computed.alias('storage.wins'),
+  losses: Ember.computed.alias('storage.losses'),
+  consecutiveLoseCount: Ember.computed.alias('storage.consecutiveLoseCount'),
 
-  lastPot: "0",
+  isWinner: false,
+  lastPot: '0',
   cashPot: Ember.computed('consecutiveLoseCount', function () {
     const growth = (Math.pow(2, this.get('consecutiveLoseCount')) / 2) * 100;
     return Math.max(growth, MINIMUM_CASH_POT).toLocaleString();
@@ -22,5 +24,9 @@ export default Ember.Service.extend({
     } else {
       this.incrementProperty('consecutiveLoseCount');
     }
+  },
+
+  reset() {
+    this.get('storage').reset();
   }
 });

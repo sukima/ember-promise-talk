@@ -1,13 +1,14 @@
 import Ember from "ember";
 
 export default Ember.Controller.extend({
+  slides: Ember.inject.service(),
   classNames: ["slides"],
 
   queryParams: {
     slideNum: 'slide'
   },
 
-  slideNum: '1',
+  slideNum: Ember.computed.alias('slides.index'),
 
   slideIndex: Ember.computed('slideNum', {
     get() {
