@@ -7,12 +7,21 @@ const SOUNDS = {
 };
 
 export default Ember.Service.extend({
+  enabled: true,
+
+  onMute: Ember.observer('enabled', function () {
+    if (!this.get('enabled')) {
+      this.stopAll();
+    }
+  }),
+
   init(...args) {
     this._super(...args);
     this.audioManager = new Audio();
   },
 
   play(sound) {
+    if (!this.get('enabled')) { return; }
     const audioManager = this.get('audioManager');
     audioManager.src = SOUNDS[sound];
     audioManager.play();

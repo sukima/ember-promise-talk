@@ -6,6 +6,15 @@
   </div>
   {{/easter-egg}}
 
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <button class="btn btn-default {{if audio.enabled 'active'}}" {{action "toggleSound"}}>
+        <span class="glyphicon {{if audio.enabled 'glyphicon-volume-up' 'glyphicon-volume-off'}}"></span>
+        {{#if audio.enabled}}Turn off sounds{{else}}Turn on sounds{{/if}}
+      </button>
+    </div>
+  </div>
+
   <p>
     Consectetur ipsam laudantium natus quam tempore, voluptatibus fugit. Ratione doloremque et quos odit commodi recusandae, hic culpa iste, saepe doloribus ratione laborum non. Minus libero consequuntur dignissimos eum et aliquam.
   </p>

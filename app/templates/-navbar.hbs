@@ -31,6 +31,13 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://github.com/sukima/ember-promise-talk/"><span class="glyphicon glyphicon-console"></span> GitHub</a></li>
       </ul>
+      <div class="navbar-form navbar-right hidden-xs hidden-sm">
+        <div class="form-group">
+          <button class="form-control btn btn-default {{if audio.enaled 'active'}}" {{action "toggleSound"}}>
+            <span class="glyphicon {{if audio.enabled 'glyphicon-volume-up' 'glyphicon-volume-off'}}"></span>
+          </button>
+        </div>
+      </div>
     {{/bs-collapse}}
   </div>
 </nav>
