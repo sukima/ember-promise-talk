@@ -32,9 +32,9 @@ export default Ember.Component.extend({
     }
   },
 
-  slideTemplate: Ember.computed('slideIndex', function () {
-    const templateName = SLIDE_NAMES[this.get('slideIndex')];
-    return `slides/${templateName}`;
+  slideComponent: Ember.computed('slideIndex', function () {
+    const componentName = SLIDE_NAMES[this.get('slideIndex')];
+    return `slides/slide-${componentName}`;
   }),
 
   actions: {
