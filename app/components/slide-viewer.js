@@ -6,6 +6,10 @@ const UP_ARROW    = 38;
 const RIGHT_ARROW = 39;
 const DOWN_ARROW  = 40;
 
+function withinSlides(index) {
+  return Math.min(Math.max(index, 0), SLIDE_NAMES.length - 1);
+}
+
 export default Ember.Component.extend({
   slideIndex: Ember.computed.readOnly('slide'),
 
@@ -47,9 +51,7 @@ export default Ember.Component.extend({
     },
 
     pickSlide(index) {
-      if (index >= 0 && index < SLIDE_NAMES.length) {
-        this.attrs.updateSlide(index);
-      }
+      this.attrs.updateSlide(withinSlides(index));
     }
   }
 });
