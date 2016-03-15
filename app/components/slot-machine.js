@@ -19,7 +19,7 @@ export default Ember.Component.extend({
         slot.spinnerValue(4000),
         slot.spinnerValue(5000)
       ];
-      Ember.RSVP.all(results)
+      Ember.RSVP.all(results, 'all spinners')
         .then(delay(1000))
         .then(Ember.run.bind(this, 'checkWinner'))
         .catch(Ember.Logger.error);
