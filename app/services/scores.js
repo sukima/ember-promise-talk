@@ -26,7 +26,9 @@ export default Ember.Service.extend({
     }
   },
 
-  reset() {
-    this.get('storage').reset();
+  actions: {
+    reset() {
+      this.get('storage').reset();
+    }
   }
 });

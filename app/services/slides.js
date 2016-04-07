@@ -5,7 +5,9 @@ export default Ember.Service.extend({
   storage: storageFor('slides'),
   index: Ember.computed.alias('storage.index'),
 
-  reset() {
-    this.get('storage').reset();
+  actions: {
+    reset() {
+      this.get('storage').reset();
+    }
   }
 });

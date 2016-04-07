@@ -35,5 +35,11 @@ export default Ember.Service.extend({
     } catch(e) {
       Ember.debug(`Unable to reset audio ${audioManager.src}`);
     }
+  },
+
+  actions: {
+    toggleMute() {
+      this.toggleProperty('enabled');
+    }
   }
 });

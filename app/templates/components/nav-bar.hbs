@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" aria-expanded="false" {{action "toggleMenu"}}>
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <span class="navbar-brand">
+      <span class="hidden-xs">Keeping Promises in EmberJS</span>
+      <span class="visible-xs-inline">
+        <span class="wins">Wins: {{scores.wins}}</span>
+        <span class="losses">Losses: {{scores.losses}}</span>
+        <span class="pot">Pot: ${{scores.cashPot}}</span>
+      </span>
+    </span>
+  </div>
+
+  {{#bs-collapse collapsed=collapsedMenu class="navbar-collapse"}}
+    <ul class="nav navbar-nav">
+      {{#link-to "index" tagName="li" as |link|}}
+        <a class="{{if link.active 'avtive'}}">Demo</a>
+      {{/link-to}}
+      {{#link-to "about" tagName="li" as |link|}}
+        <a class="{{if link.active 'active'}}">About</a>
+      {{/link-to}}
+      {{#link-to "slides" tagName="li" as |link|}}
+        <a class="{{if link.active 'active'}}">Slides</a>
+      {{/link-to}}
+    </ul>
+    <p class="navbar-text hidden-xs">
+      <span class="wins">Wins: {{scores.wins}}</span>
+      <span class="losses">Losses: {{scores.losses}}</span>
+      <span class="pot">Pot: ${{scores.cashPot}}</span>
+    </p>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="https://github.com/sukima/ember-promise-talk/"><span class="glyphicon glyphicon-console"></span> GitHub</a></li>
+    </ul>
+    <div class="navbar-form navbar-right hidden-xs hidden-sm">
+      <div class="form-group">
+        <button class="form-control btn btn-default {{if audio.enaled 'active'}}" onclick={{action "toggleMute" target=audio}}>
+          <span class="glyphicon {{if audio.enabled 'glyphicon-volume-up' 'glyphicon-volume-off'}}"></span>
+        </button>
+      </div>
+    </div>
+  {{/bs-collapse}}
+</div>

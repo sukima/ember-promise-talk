@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <button class="btn btn-default" onclick={{action "toggleMute" target=audio}}>
+      <span class="glyphicon {{if audio.enabled 'glyphicon-volume-off' 'glyphicon-volume-up'}}"></span>
+      {{#if audio.enabled}}Turn off sounds{{else}}Turn on sounds{{/if}}
+    </button>
+    <button class="btn btn-info" onclick={{action "reset" target=slides}}>
+      <span class="glyphicon glyphicon-fast-backward"></span>
+      Reset slides
+      <span class="badge">{{slides.index}}</span>
+    </button>
+    <button class="btn btn-warning" onclick={{action "reset" target=scores}}>
+      <span class="glyphicon glyphicon-floppy-remove"></span>
+      Reset scores
+    </button>
+  </div>
+</div>

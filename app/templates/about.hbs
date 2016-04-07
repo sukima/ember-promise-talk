@@ -1,28 +1,12 @@
 <div class="container">
   {{#easter-egg}}
-  <div class="jumbotron">
-    <h1>Keeping Promises in EmberJS</h1>
-    <p>An example demo on having fun with EmberJS… <em>promise</em></p>
-  </div>
+    <div class="jumbotron">
+      <h1>Keeping Promises in EmberJS</h1>
+      <p>An example demo on having fun with EmberJS… <em>promise</em></p>
+    </div>
   {{/easter-egg}}
 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <button class="btn btn-default" {{action "toggleSound"}}>
-        <span class="glyphicon {{if audio.enabled 'glyphicon-volume-off' 'glyphicon-volume-up'}}"></span>
-        {{#if audio.enabled}}Turn off sounds{{else}}Turn on sounds{{/if}}
-      </button>
-      <button class="btn btn-info" {{action "resetSlides"}}>
-        <span class="glyphicon glyphicon-fast-backward"></span>
-        Reset slides
-        <span class="badge">{{slides.index}}</span>
-      </button>
-      <button class="btn btn-warning" {{action "resetScores"}}>
-        <span class="glyphicon glyphicon-floppy-remove"></span>
-        Reset scores
-      </button>
-    </div>
-  </div>
+  {{control-panel}}
 
   <p>
     Consectetur ipsam laudantium natus quam tempore, voluptatibus fugit. Ratione doloremque et quos odit commodi recusandae, hic culpa iste, saepe doloribus ratione laborum non. Minus libero consequuntur dignissimos eum et aliquam.
